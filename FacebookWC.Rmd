@@ -1,0 +1,25 @@
+Analyze fb wall only n
+========================================================
+
+1. use functions,
+2. use n only
+3. need to replace the fb oauth file yourown
+
+```{r  fig.width=7, fig.height=6,warning=FALSE}
+library(tm.plugin.webmining)
+library(XML)
+library(tm)
+load(file="/data/sparkr1_fb_oauth")
+library("Rfacebook")
+t1 = fb_O
+my_friends <- getFriends(token=t1, simplify=TRUE)
+NFL = getNewsfeed(t1,n=100)
+
+source("C_mywordcloud.R")
+
+w1 = getmywordcloud(NFL$message,'n')
+w1
+
+
+```
+
